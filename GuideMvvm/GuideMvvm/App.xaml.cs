@@ -1,6 +1,5 @@
-﻿using System;
+﻿using GuideMvvm.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace GuideMvvm
 {
@@ -10,7 +9,7 @@ namespace GuideMvvm
       {
          InitializeComponent();
 
-         MainPage = new MainPage();
+         MainPage = new InitialPage();
       }
 
       protected override void OnStart()

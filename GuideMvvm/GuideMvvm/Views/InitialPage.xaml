@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuideMvvm.Views.InitialPage">
+    <Grid BackgroundColor="#464FBC">
+        <StackLayout VerticalOptions="Center">            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Number1:" TextColor="White" FontAttributes="Bold" VerticalOptions="Center"/>
+                <Entry PlaceholderColor="White" Placeholder="Escriba su mensaje" HorizontalOptions="StartAndExpand" TextColor="White"
+                       Text="{Binding NumberOne}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Number2:" TextColor="White" FontAttributes="Bold" VerticalOptions="Center"/>
+                <Entry PlaceholderColor="White" Placeholder="Escriba su mensaje" HorizontalOptions="StartAndExpand" TextColor="White"
+                       Text="{Binding NumberTwo}"/>
+            </StackLayout>
+            <Button Text="Sum" TextTransform="None" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding SimpleProcessCommand}"
+                    BackgroundColor="White" FontAttributes="Bold" CornerRadius="5"/>
+
+            <Label Text="{Binding Sum}" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold"
+                   FontSize="40"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
