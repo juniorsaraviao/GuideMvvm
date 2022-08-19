@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GuideMvvm.Views.InitialPage">
+             x:Class="GuideMvvm.Views.InitialPage"
+             NavigationPage.HasNavigationBar="False">
     <Grid BackgroundColor="#464FBC">
         <StackLayout VerticalOptions="Center">            
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
@@ -19,6 +20,9 @@
 
             <Label Text="{Binding Sum}" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold"
                    FontSize="40"/>
+
+            <Button Text="Next Page" TextTransform="None" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding NavigateNextCommand}"
+                    BackgroundColor="White" FontAttributes="Bold" CornerRadius="5"/>
         </StackLayout>
     </Grid>
 </ContentPage>

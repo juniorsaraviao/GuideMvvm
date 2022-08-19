@@ -9,7 +9,7 @@ namespace GuideMvvm
       {
          InitializeComponent();
 
-         MainPage = new InitialPage();
+         MainPage = new NavigationPage(new InitialPage());
       }
 
       protected override void OnStart()

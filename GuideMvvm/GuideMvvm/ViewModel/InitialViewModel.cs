@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using GuideMvvm.Views;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -14,12 +15,14 @@ namespace GuideMvvm.ViewModel
 
       public ICommand ShowAlertCommand { get; }
       public ICommand SimpleProcessCommand { get; }
+      public ICommand NavigateNextCommand { get; }
 
       public InitialViewModel(INavigation navigation)
       {
          Navigation = navigation;
          ShowAlertCommand = new Command(async () => await ShowAlertAsync());
          SimpleProcessCommand = new Command(SimpleProcess);
+         NavigateNextCommand = new Command(async () => await NavigateNext());
       }
 
       public string Text
@@ -55,6 +58,11 @@ namespace GuideMvvm.ViewModel
       public async Task ShowAlertAsync()
       {
          await DisplayAlert("Title", Mensaje, "Ok");
+      }
+
+      public async Task NavigateNext()
+      {
+         await Navigation.PushAsync(new SecondPage());
       }
 
       void SimpleProcess()
