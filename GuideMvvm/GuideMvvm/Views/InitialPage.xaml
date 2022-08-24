@@ -27,6 +27,18 @@
 
             <Button Text="Next Page" TextTransform="None" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding NavigateNextCommand}"
                     BackgroundColor="White" FontAttributes="Bold" CornerRadius="5"/>
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label TextColor="White" FontAttributes="Bold" Text="Picker:" VerticalOptions="Center"/>
+                <Picker TextColor="White" TitleColor="White" HorizontalOptions="FillAndExpand" Title="Select an option" SelectedItem="{Binding SelectedTypeUser}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Admin</x:String>
+                            <x:String>Employee</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
         </StackLayout>
     </Grid>
 </ContentPage>

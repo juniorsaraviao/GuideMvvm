@@ -12,6 +12,8 @@ namespace GuideMvvm.ViewModel
       string numberOne;
       string numberTwo;
       string sum;
+      string userType;
+      string selectedUserType;
 
       public ICommand ShowAlertCommand { get; }
       public ICommand SimpleProcessCommand { get; }
@@ -53,6 +55,24 @@ namespace GuideMvvm.ViewModel
       {
          get => sum;
          set => SetProperty(ref sum, value);
+      }
+
+      public string UserType
+      {
+         get => userType;
+         set => SetProperty(ref userType, value);
+      }
+
+      public string SelectedTypeUser
+      {
+         get => userType;
+         set
+         {
+            if (SetProperty(ref userType, value))
+            {
+               UserType = userType;
+            }
+         }
       }
 
       public async Task ShowAlertAsync()
