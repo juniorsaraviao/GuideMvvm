@@ -39,6 +39,13 @@
                     </Picker.ItemsSource>
                 </Picker>
             </StackLayout>
+
+            <StackLayout HorizontalOptions="Center">
+                <DatePicker TextColor="White" Format="dd/MM/yyyy" Date="{Binding Date}">
+                    
+                </DatePicker>
+                <Label Text="{Binding ResultDate, StringFormat='Result date: {0}'}" TextColor="White" FontAttributes="Bold" FontSize="20"/>
+            </StackLayout>
         </StackLayout>
     </Grid>
 </ContentPage>

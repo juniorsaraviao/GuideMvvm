@@ -1,4 +1,5 @@
 ﻿using GuideMvvm.Views;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -13,7 +14,8 @@ namespace GuideMvvm.ViewModel
       string numberTwo;
       string sum;
       string userType;
-      string selectedUserType;
+      string resultDate;
+      DateTime date;
 
       public ICommand ShowAlertCommand { get; }
       public ICommand SimpleProcessCommand { get; }
@@ -25,6 +27,7 @@ namespace GuideMvvm.ViewModel
          ShowAlertCommand = new Command(async () => await ShowAlertAsync());
          SimpleProcessCommand = new Command(SimpleProcess);
          NavigateNextCommand = new Command(async () => await NavigateNext());
+         Date = DateTime.Now;
       }
 
       public string Text
@@ -63,6 +66,12 @@ namespace GuideMvvm.ViewModel
          set => SetProperty(ref userType, value);
       }
 
+      public string ResultDate
+      {
+         get => resultDate;
+         set => SetProperty(ref resultDate, value);
+      }
+
       public string SelectedTypeUser
       {
          get => userType;
@@ -71,6 +80,18 @@ namespace GuideMvvm.ViewModel
             if (SetProperty(ref userType, value))
             {
                UserType = userType;
+            }
+         }
+      }
+
+      public DateTime Date
+      {
+         get => date;
+         set
+         {
+            if (SetProperty(ref date, value))
+            {
+               ResultDate = date.ToString("dd/MM/yyyy");
             }
          }
       }
