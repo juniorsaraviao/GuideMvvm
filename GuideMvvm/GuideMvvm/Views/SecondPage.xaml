@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GuideMvvm.Views.SecondPage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="Orange">
+             BackgroundColor="Orange"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="500"
+             sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="Flip">
     <ContentPage.Content>
         <Label HorizontalOptions="Start" VerticalOptions="Start" Text="←" FontSize="20" Margin="10">
             <Label.GestureRecognizers>

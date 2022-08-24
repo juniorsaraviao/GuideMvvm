@@ -1,4 +1,5 @@
 ﻿using GuideMvvm.Views;
+using Plugin.SharedTransitions;
 using Xamarin.Forms;
 
 namespace GuideMvvm
@@ -9,7 +10,7 @@ namespace GuideMvvm
       {
          InitializeComponent();
 
-         MainPage = new NavigationPage(new InitialPage());
+         MainPage = new SharedTransitionNavigationPage(new InitialPage());
       }
 
       protected override void OnStart()

@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GuideMvvm.Views.InitialPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             sharedTransitions:SharedTransitionNavigationPage.TransitionSelectedGroup="{Binding SelectedPlaceId}"
+             sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="300"
+             sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="SlideFromRight">
     <Grid BackgroundColor="#464FBC">
         <StackLayout VerticalOptions="Center">            
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
