@@ -15,7 +15,7 @@ namespace GuideMvvm.ViewModel
       {
          Navigation = navigation;
          BackCommand = new Command(async () => await BackNavigation());
-         AlertCommand = new Command(async () => await AlertMessage());
+         AlertCommand = new Command<User>(async (user) => await AlertMessage(user));
          AddUsers();
       }
 
@@ -24,9 +24,13 @@ namespace GuideMvvm.ViewModel
          await Navigation.PopAsync();
       }
 
-      async Task AlertMessage()
+      async Task AlertMessage(User user)
       {
-         await DisplayAlert("Title", "Message", "Ok");
+         if (user == null)
+         {
+            return;
+         }
+         await DisplayAlert("Title", $"Message to: {user.Name}", "Ok");
       }
 
       void AddUsers()

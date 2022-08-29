@@ -6,7 +6,8 @@
              BackgroundColor="Orange"
              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="500"
-             sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="Flip">
+             sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="Flip"
+             x:Name="this">
     <ContentPage.Content>
         <StackLayout>       
             <Label HorizontalOptions="Start" VerticalOptions="Start" Text="←" FontSize="20" Margin="10">
@@ -28,7 +29,7 @@
                                 <Label Text="{Binding Name}" VerticalOptions="Center" FontSize="20" FontAttributes="Bold"/>
                             </StackLayout>
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding AlertCommand}"/>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference this}, Path=BindingContext.AlertCommand}" CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                     </DataTemplate>
