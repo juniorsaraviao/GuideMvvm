@@ -8,10 +8,32 @@
              sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="500"
              sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="Flip">
     <ContentPage.Content>
-        <Label HorizontalOptions="Start" VerticalOptions="Start" Text="←" FontSize="20" Margin="10">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}"/>
-            </Label.GestureRecognizers>
-        </Label>
+        <StackLayout>       
+            <Label HorizontalOptions="Start" VerticalOptions="Start" Text="←" FontSize="20" Margin="10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <CollectionView ItemsSource="{Binding UserList}"
+                            VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" CornerRadius="15" BackgroundColor="#00DE87">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Image}" HeightRequest="100"/>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" FontSize="20" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AlertCommand}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
