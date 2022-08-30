@@ -20,12 +20,14 @@ namespace GuideMvvm.ViewModel
       public ICommand ShowAlertCommand { get; }
       public ICommand SimpleProcessCommand { get; }
       public ICommand NavigateNextCommand { get; }
+      public ICommand BackCommand { get; }
 
       public InitialViewModel(INavigation navigation)
       {
          Navigation = navigation;
          ShowAlertCommand = new Command(async () => await ShowAlertAsync());
          SimpleProcessCommand = new Command(SimpleProcess);
+         BackCommand = new Command(async () => await BackNavigation());
          NavigateNextCommand = new Command(async () => await NavigateNext());
          Date = DateTime.Now;
       }
@@ -104,6 +106,11 @@ namespace GuideMvvm.ViewModel
       public async Task NavigateNext()
       {
          await Navigation.PushAsync(new SecondPage());
+      }
+
+      async Task BackNavigation()
+      {
+         await Navigation.PopAsync();
       }
 
       void SimpleProcess()

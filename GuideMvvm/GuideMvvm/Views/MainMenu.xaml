@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuideMvvm.Views.MainMenu"
+             x:Name="this"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <CollectionView ItemsSource="{Binding MenuItems}"
+                            VerticalOptions="CenterAndExpand" Margin="20,20,20,0">
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Text="Pages" FontAttributes="Bold" FontSize="25"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" CornerRadius="15" BackgroundColor="#00DE87">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Icon}" HeightRequest="100"/>
+                                <Label Text="{Binding Page}" VerticalOptions="Center" FontSize="20" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference this}, Path=BindingContext.NavigateCommand}" CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

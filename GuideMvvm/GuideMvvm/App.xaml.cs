@@ -10,7 +10,7 @@ namespace GuideMvvm
       {
          InitializeComponent();
 
-         MainPage = new SharedTransitionNavigationPage(new InitialPage());
+         MainPage = new SharedTransitionNavigationPage(new MainMenu());
       }
 
       protected override void OnStart()
